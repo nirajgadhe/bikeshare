@@ -90,11 +90,12 @@ jobs:
         DOCKER_USER: ${{ secrets.DOCKER_USER_NAME }}
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASS_TOKEN }}
       run: docker login -u $DOCKER_USER -p $DOCKER_PASSWORD 
-
+    
     - name: Build the Docker image for Fastapi app
       env:
         DOCKER_USER: ${{ secrets.DOCKER_USER_NAME }}
       run: docker build . -f Dockerfile -t $DOCKER_USER/bikeshare:latest
+      working-directory: bikeshare_project
 
     - name: Push the Docker Image
       env:
