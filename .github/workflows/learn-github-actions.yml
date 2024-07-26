@@ -62,9 +62,9 @@ jobs:
         name: my-trained-pipeline
         path: bikeshare_project/bikeshare_model/trained_models
     - name: Install dependencies
-      run: pip install --upgrade build
+      run: pip install --upgrade bikeshare_project/build
     - name: Build package
-      run: python -m build
+      run: python -m bikeshare_project/build
     - uses: actions/upload-artifact@v2
       with:
         name: my-build-package
